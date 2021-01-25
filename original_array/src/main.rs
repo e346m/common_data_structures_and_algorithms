@@ -47,7 +47,7 @@ fn main() {
 
 fn print_search_result(result: Option<usize>) {
     match result {
-        None => println!("Hello, world!"),
+        None => println!("Target does not exist"),
         Some(x) => {
             println!("target is at {}", x)
         }
