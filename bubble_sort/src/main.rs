@@ -16,10 +16,11 @@ impl Array {
 
     fn bubble_sort(mut self) -> Self {
         let mut unsorted_untile_index = self.content.len() - 1;
-        let mut is_sorted = false;
+        let mut is_sorted;
         let mut steps = 0;
+        let mut comp = 0;
 
-        while !is_sorted {
+        loop {
             is_sorted = true;
             for i in 0..unsorted_untile_index {
                 steps += 1;
@@ -27,14 +28,18 @@ impl Array {
                     let tmp = self.content[i];
                     self.content[i] = self.content[i+1];
                     self.content[i+1] = tmp;
+                    comp += 1;
 
                     is_sorted = false;
                 }
             }
-            println!("index: {}", unsorted_untile_index);
+
+            if is_sorted != false {
+                break
+            }
             unsorted_untile_index -= 1;
         }
-        println!("steps: {}", steps);
+        println!("total_steps: {}", steps + comp);
 
         return self
     }
